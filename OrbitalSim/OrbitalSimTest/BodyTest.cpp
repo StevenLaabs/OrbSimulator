@@ -36,7 +36,6 @@ TEST_F(BodyTest, AngledBodyDist)
 	EXPECT_EQ(707106781186.54752440084436210485, bodies[1].bodyDist(bodies[2]));
 }
 
-// TODO: Fix Google Test error where test fails for matching values
 TEST_F(BodyTest, ApplyAcceleration)
 {
 	bodies[0].applyAcceleration(bodies[1]);
@@ -44,11 +43,10 @@ TEST_F(BodyTest, ApplyAcceleration)
 	EXPECT_EQ(3.98571e-10, bodies[0].getAcceleration());
 }
 
-// TODO: Rewrite PhysicsStep test for new equation
-//TEST_F(BodyTest, PhysicsStep)
-//{
-//	bodies[1].applyAcceleration(bodies[0]);
-//	bodies[1].updatePosition(1); // 1 second step
-//
-//	EXPECT_EQ(132.746, bodies[1].getVelocity()) << "Bad velocity";
-//}
+TEST_F(BodyTest, ResetAcceleration)
+{
+	bodies[0].applyAcceleration(bodies[1]);
+	bodies[0].resetAcceleration();
+
+	EXPECT_EQ(0, bodies[0].getAcceleration());
+}
