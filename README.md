@@ -4,9 +4,7 @@ The Orbital Simulator project is an N-body simulation which renders simulated bo
 **Libraries used**: SFML for graphics, Google Test for unit testing
 
 ##TODO
-- Complete unit tests for Body
 - Implement unit tests for BodySystem
-- Implement unit tests for utility methods
 - Refactor Body (and possibly BodySystem) to separate SFML classes from them
 
 ##PLANNED FEATURES
