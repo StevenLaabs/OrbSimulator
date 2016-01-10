@@ -14,6 +14,7 @@ The Orbital Simulator project is an N-body simulation which renders simulated bo
 - Camera controls for zooming and panning
 - Classes to utilize the Barnes-Hut algorithm which will allow for larger simulations
 - Methods for the simulation to generate larger sets of bodies of different types
+- Body loading from data files
 - Richer graphics features for the bodies (possibly using a BodySprite class)
 - Body orbit/path rendering
 - Spacecraft maneuvers/plans, orbital transfers
