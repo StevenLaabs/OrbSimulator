@@ -39,7 +39,7 @@ public:
 	double bodyDist(Body& other);
 
 	// Sets exact velocity vector for the body
-	void setVelocity(sf::Vector2<double> vel) { velocity = vel; }
+	void setVelocity(sf::Vector2<double> velocity);
 
 	// Returns the scalar magnitude of the velocity
 	double getVelocity() const;
@@ -61,13 +61,13 @@ public:
 
 
 private:
-	sf::Vector2<double> position;
-	sf::Vector2<double> velocity;
-	sf::Vector2<double> acceleration;
-	sf::Vector2<double> oldAcceleration;
-	double mass;
+	sf::Vector2<double> _position;
+	sf::Vector2<double> _velocity;
+	sf::Vector2<double> _acceleration;
+	sf::Vector2<double> _oldAcceleration;
+	double _mass;
 
-	sf::CircleShape shape;
+	sf::CircleShape _shape;
 };
 
 #endif // !_BODY_H

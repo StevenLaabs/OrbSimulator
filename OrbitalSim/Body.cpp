@@ -3,10 +3,10 @@
 #include "util.h"
 
 Body::Body(double m, sf::Vector2<double> pos, sf::Vector2<double> vel, float radius, sf::Color color) : 
-	mass(m), position(pos), velocity(vel), acceleration(0, 0), oldAcceleration(acceleration), shape(radius)
+	_mass(m), _position(pos), _velocity(vel), _acceleration(0, 0), _oldAcceleration(_acceleration), _shape(radius)
 {
-	shape.setFillColor(color);
-	orbutil::centerOrigin(shape);
+	_shape.setFillColor(color);
+	orbutil::centerOrigin(_shape);
 }
 
 Body::~Body() {}
@@ -18,58 +18,63 @@ void Body::applyAcceleration(Body& other)
 	{
 		double distance = bodyDist(other);
 
-		sf::Vector2<double> accelDirection = other.position - position;
+		sf::Vector2<double> accelDirection = other._position - _position;
 		orbutil::normalize(accelDirection);
 
-		double accelMagnitude = (orbutil::G * other.mass) / (distance * distance);
+		double accelMagnitude = (orbutil::G * other._mass) / (distance * distance);
 
-		acceleration += (accelDirection * accelMagnitude);
+		_acceleration += (accelDirection * accelMagnitude);
 	}
 }
 
 void Body::resetAcceleration()
 {
-	acceleration.x = 0;
-	acceleration.y = 0;
+	_acceleration.x = 0;
+	_acceleration.y = 0;
 }
 
 void Body::updatePosition(double deltaTime)
 {	
-	oldAcceleration = acceleration;
-	position += velocity * deltaTime + 0.5 * acceleration * deltaTime * deltaTime;
+	_oldAcceleration = _acceleration;
+	_position += _velocity * deltaTime + 0.5 * _acceleration * deltaTime * deltaTime;
 }
 
 void Body::updateVelocity(double deltaTime)
 {
-	velocity += 0.5 * (oldAcceleration + acceleration) * deltaTime;
+	_velocity += 0.5 * (_oldAcceleration + _acceleration) * deltaTime;
 }
 
 void Body::updateRender()
 {
-	float posX = position.x * (orbutil::SCREEN_WIDTH / 2) / orbutil::UNIVERSE_RADIUS;
-	float posY = position.y * (orbutil::SCREEN_HEIGHT / 2) / orbutil::UNIVERSE_RADIUS;
-	shape.setPosition(posX + (orbutil::SCREEN_WIDTH / 2), posY + (orbutil::SCREEN_HEIGHT / 2)); // origin of universe center of screen
+	float posX = _position.x * (orbutil::SCREEN_WIDTH / 2) / orbutil::UNIVERSE_RADIUS;
+	float posY = _position.y * (orbutil::SCREEN_HEIGHT / 2) / orbutil::UNIVERSE_RADIUS;
+	_shape.setPosition(posX + (orbutil::SCREEN_WIDTH / 2), posY + (orbutil::SCREEN_HEIGHT / 2)); // origin of universe center of screen
 }
 
 double Body::bodyDist(Body& other)
 {
-	double x = position.x - other.position.x;
-	double y = position.y - other.position.y;
+	double x = _position.x - other._position.x;
+	double y = _position.y - other._position.y;
 
 	return std::sqrt(std::pow(x, 2) + std::pow(y, 2));
 }
 
+void Body::setVelocity(sf::Vector2<double> velocity)
+{
+	_velocity = velocity;
+}
+
 double Body::getVelocity() const
 {
-	return std::sqrt(std::pow(velocity.x, 2) + std::pow(velocity.y, 2));
+	return std::sqrt(std::pow(_velocity.x, 2) + std::pow(_velocity.y, 2));
 }
 
 double Body::getAcceleration() const
 {
-	return std::sqrt(std::pow(acceleration.x, 2) + std::pow(acceleration.y, 2));
+	return std::sqrt(std::pow(_acceleration.x, 2) + std::pow(_acceleration.y, 2));
 }
 
 void Body::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	target.draw(shape);
+	target.draw(_shape);
 }

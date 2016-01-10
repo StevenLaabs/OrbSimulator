@@ -27,8 +27,8 @@ public:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 private:
-	// Fixed physics time step (1 year per second)
-	const double TIME_STEP = 31536000;
+	// Fixed physics time step
+	double _timeStep = 1;
 
 	std::vector<Body*> _bodies;
 
@@ -41,7 +41,7 @@ private:
 
 	// Resets and computes the net accelerations on each body
 	void computeAccelerations();
-
+		
 };
 
 #endif // !_BODYSYSTEM_H
