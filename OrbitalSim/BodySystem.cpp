@@ -33,7 +33,7 @@ void BodySystem::initDemoBodies()
 void BodySystem::update(sf::Time deltaTime)
 {
 	// scale the time step with the deltaTime
-	double dt = TIME_STEP * deltaTime.asSeconds();
+	double dt = orbutil::TIME_STEP * deltaTime.asSeconds();
 
 	// update each body position
 	for (unsigned int i = 0; i < _bodies.size(); i++)

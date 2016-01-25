@@ -53,10 +53,10 @@ public:
 	// debugging output
 	friend std::ostream& operator<<(std::ostream& os, const Body& obj)
 	{
-		return os << "Velocity: " << obj.velocity.x << " " << obj.velocity.y
-			<< " Acceleration: " << obj.acceleration.x << " " << obj.acceleration.y
-			<< " Position: " << obj.position.x << " " << obj.position.y
-			<< " Mass: " << obj.mass;
+		return os << "Velocity: " << obj._velocity.x << " " << obj._velocity.y
+			<< " Acceleration: " << obj._acceleration.x << " " << obj._acceleration.y
+			<< " Position: " << obj._position.x << " " << obj._position.y
+			<< " Mass: " << obj._mass;
 	}
 
 

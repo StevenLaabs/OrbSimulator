@@ -155,11 +155,13 @@
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="BodySystem.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Quadrant.cpp" />
     <ClCompile Include="QuadTree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Body.h" />
     <ClInclude Include="BodySystem.h" />
+    <ClInclude Include="Quadrant.h" />
     <ClInclude Include="QuadTree.h" />
     <ClInclude Include="util.h" />
   </ItemGroup>

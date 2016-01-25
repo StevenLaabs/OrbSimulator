@@ -29,8 +29,8 @@ public:
 
 private:
 
-	double posX, posY;
-	double length;
+	double _posX, _posY;
+	double _length;
 
 };
 

@@ -23,11 +23,11 @@ bool QuadTree::isLeaf(QuadTree* node)
 
 void QuadTree::insert(Body* body)
 {
-	if (this->body == nullptr)
+	/*if (this->body == nullptr)
 		this->body = body;
 
 	else if (isLeaf(this) == false)
 	{
 		this->body = 
-	}
+	}*/
 }

@@ -43,11 +43,10 @@ TEST_F(QuadrantTest, ContainsPointCenter)
 
 TEST_F(QuadrantTest, ContainsPointBounds)
 {
-	// TODO: Rewrite test, should be radius of 10 not 20 (as 20 is the full length)
-	EXPECT_TRUE(quadrant.contains(5, -10));
-	EXPECT_TRUE(quadrant.contains(5, 30));
-	EXPECT_TRUE(quadrant.contains(25, 20));
-	EXPECT_TRUE(quadrant.contains(-15, 20));
+	EXPECT_TRUE(quadrant.contains(5, 0));
+	EXPECT_TRUE(quadrant.contains(5, 20));
+	EXPECT_TRUE(quadrant.contains(15, 10));
+	EXPECT_TRUE(quadrant.contains(-5, 10));
 }
 
 TEST_F(QuadrantTest, ContainsPointOutside)
@@ -57,21 +56,28 @@ TEST_F(QuadrantTest, ContainsPointOutside)
 
 TEST_F(QuadrantTest, GenerateNW)
 {
-	EXPECT_EQ();
-	EXPECT_EQ();
+	EXPECT_EQ(10, NW->getLength());
+	EXPECT_EQ(0, NW->getposX());
+	EXPECT_EQ(15, NW->getposY());
 }
 
 TEST_F(QuadrantTest, GenerateNE)
 {
-
+	EXPECT_EQ(10, NE->getLength());
+	EXPECT_EQ(10, NE->getposX());
+	EXPECT_EQ(15, NE->getposY());
 }
 
 TEST_F(QuadrantTest, GenerateSW)
 {
-
+	EXPECT_EQ(10, SW->getLength());
+	EXPECT_EQ(0, SW->getposX());
+	EXPECT_EQ(5, SW->getposY());
 }
 
 TEST_F(QuadrantTest, GenerateSE)
 {
-
+	EXPECT_EQ(10, SE->getLength());
+	EXPECT_EQ(10, SE->getposX());
+	EXPECT_EQ(5, SW->getposY());
 }

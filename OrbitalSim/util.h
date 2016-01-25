@@ -12,6 +12,8 @@ namespace orbutil
 	static const double G = 6.674e-11;
 	static const double UNIVERSE_RADIUS = 1e12;
 
+	static const double TIME_STEP = 1;
+
 	//---------------------------
 	// Utility methods
 	//---------------------------
